@@ -20,8 +20,9 @@ namespace youtubedl
             {
                 if (!String.IsNullOrEmpty(url))
                 {
-                    var json = wc.DownloadString("http://localhost/VRCYoutubedl.php?url=" + url);
-                    Console.WriteLine(json);
+                    var inputUrl = Uri.EscapeDataString(url);
+                    var output = wc.DownloadString("http://localhost/VRCYoutubedl.php?url=" + url);
+                    Console.WriteLine(output);
                 }
             }
         }
