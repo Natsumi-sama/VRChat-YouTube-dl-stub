@@ -42,7 +42,7 @@ if ($lastUpdateTime <= $time - 259200) {
 if ($newURL) {
     echo $newURL;
 } else {
-    $shell_output = exec("..\bin\youtube-dl\youtube-dl.exe -f \"mp4[height<=?1080]/best[height<=?1080]\" --get-url $url");
+    $shell_output = exec("..\bin\youtube-dl\youtube-dl.exe -f \"mp4[height<=?1080]/best[height<=?1080]\" --get-url $url") . " 2>&1");
     print_r($shell_output);
 }
 ?>
