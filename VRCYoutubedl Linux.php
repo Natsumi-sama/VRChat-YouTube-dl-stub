@@ -11,10 +11,11 @@ $newURL = "";
 preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $url, $matches);
 if (substr($url, 0, 23) == "http://storage.llss.io/") {
     $file = substr($url, 23, strlen($url));
+} else if (substr($url, 0, 34) == "https://jd.pypy.moe/api/v1/videos/") {
+    $file = substr($url, 34, strlen($url));
 } else if ($matches) {
     $file = "$matches[0].mp4";
 }
-
 if ($file) {
     if (file_exists("$file")) {
         $newURL = "http://localhost/$file";
