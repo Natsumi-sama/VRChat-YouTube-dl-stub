@@ -31,7 +31,11 @@ if ($file) {
 if ($newURL) {
     echo $newURL;
 } else {
-    $shell_output = shell_exec("/usr/bin/youtube-dl -f 'mp4[height<=?1080]/best[height<=?1080]' --get-url " . escapeshellarg($url) . " 2>&1");
-    print_r($shell_output);
+    $shell_output = shell_exec("/usr/bin/youtube-dl --no-playlist -f 'mp4[height<=?1080]/best[height<=?1080]' --get-url " . escapeshellarg($url) . " 2>&1");
+    if (substr($shell_output, 0, 9) == "WARNING: ") {
+        echo $url;
+    } else {
+        print_r($shell_output);
+    }
 }
 ?>
