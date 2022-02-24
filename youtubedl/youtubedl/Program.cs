@@ -23,9 +23,9 @@ namespace youtubedl
                     var inputUrl = Uri.EscapeDataString(url);
                     var output = wc.DownloadString("http://localhost/VRCYoutubedl.php?url=" + inputUrl);
                     Console.WriteLine(output);
-                    if (output.Trim().StartsWith("ERROR:"))
+                    if (!output.Trim().StartsWith("http"))
                     {
-                        Environment.ExitCode = -1;
+                        Environment.ExitCode = 1;
                     }
                 }
             }

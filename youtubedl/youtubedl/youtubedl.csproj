@@ -7,7 +7,7 @@
     <ProjectGuid>{E253FE94-6C71-4215-A376-1990AAE4829F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>youtubedl</RootNamespace>
-    <AssemblyName>youtube-dl</AssemblyName>
+    <AssemblyName>yt-dlp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -26,7 +26,7 @@ if ($file) {
 if ($newURL) {
     echo $newURL;
 } else {
-    $shell_output = shell_exec("yt-dlp -f 'b[ext=mp4]' --no-playlist --get-url " . escapeshellarg($url) . " 2>&1");
+    $shell_output = shell_exec("yt-dlp -f 'b[ext=mp4]' --no-playlist --no-warnings --get-url " . escapeshellarg($url) . " 2>&1");
     if (substr($shell_output, 0, 9) == "WARNING: ") {
         echo $url;
     } else {
