@@ -38,14 +38,16 @@ if (file_exists("$lastUpdateFile")) {
 }
 if ($lastUpdateTime <= $time - 259200) {
     file_put_contents($lastUpdateFile, $time);
-    exec("start ..\bin\youtube-dl\youtube-dl.exe -U");
+    exec("start ..\bin\youtube-dl\yt-dlp.exe -U");
 }
 
 if ($newURL) {
     echo $newURL;
 } else {
-    $shell_output = exec("..\bin\youtube-dl\youtube-dl.exe --no-playlist --no-warnings --get-url " . escapeshellarg($url) . " 2>&1");
+    $shell_output = exec("..\bin\youtube-dl\yt-dlp.exe -f \"b[ext=mp4]\" --no-playlist --no-warnings --get-url " . escapeshellarg($url) . " 2>&1");
     if (substr($shell_output, 0, 9) == "WARNING: ") {
+        echo $url;
+    } if (substr($shell_output, 0, 7) == "ERROR: ") {
         echo $url;
     } else {
         print_r($shell_output);
